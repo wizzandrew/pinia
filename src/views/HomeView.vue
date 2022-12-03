@@ -2,8 +2,8 @@
   <div class="home">
     <div class="count">{{ storeCounter.count }}</div>
     <div class="count-btn">
-      <button @click="decreaseCount">-</button>
-      <button @click="increaseCount">+</button>
+      <button @click="storeCounter.decreaseCount">-</button>
+      <button @click="storeCounter.increaseCount">+</button>
     </div>
     <hr />
     <div>This counter is: {{ oddOrEven }}</div>
