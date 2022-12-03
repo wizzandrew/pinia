@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="count">{{ count }}</div>
+    <div class="count">{{ storeCounter.count }}</div>
     <div class="count-btn">
       <button @click="decreaseCount">-</button>
       <button @click="increaseCount">+</button>
@@ -12,16 +12,22 @@
 
 <script>
 import { computed, defineComponent, ref } from "vue";
+import { useCounterStore } from "../stores/counter";
 
 export default defineComponent({
   setup() {
+    //pinia state
+    const storeCounter = useCounterStore();
+
     const count = ref(0);
 
+    //computed
     const oddOrEven = computed(() => {
       const remain = count.value % 2;
       return remain === 1 ? "odd" : "even";
     });
 
+    //methods
     const increaseCount = () => {
       count.value += 1;
     };
@@ -30,7 +36,7 @@ export default defineComponent({
       count.value -= 1;
     };
 
-    return { count, oddOrEven, increaseCount, decreaseCount };
+    return { storeCounter, count, oddOrEven, increaseCount, decreaseCount };
   },
 });
 </script>
