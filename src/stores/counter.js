@@ -10,5 +10,11 @@ export const useCounterStore = defineStore('counter', {
     decreaseCount() {
       this.count--;
     },
+  },
+  getters: {
+    oddOrEven: (state) => {
+      const remain = state.count % 2;
+      return remain === 1 ? "odd" : "even";
+    }
   }
 })

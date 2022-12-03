@@ -6,7 +6,7 @@
       <button @click="storeCounter.increaseCount">+</button>
     </div>
     <hr />
-    <div>This counter is: {{ oddOrEven }}</div>
+    <div>This counter is: {{ storeCounter.oddOrEven }}</div>
   </div>
 </template>
 
@@ -19,24 +19,24 @@ export default defineComponent({
     //pinia state
     const storeCounter = useCounterStore();
 
-    const count = ref(0);
+    // const count = ref(0);
 
     //computed
-    const oddOrEven = computed(() => {
-      const remain = count.value % 2;
-      return remain === 1 ? "odd" : "even";
-    });
+    // const oddOrEven = computed(() => {
+    //   const remain = count.value % 2;
+    //   return remain === 1 ? "odd" : "even";
+    // });
 
     //methods
-    const increaseCount = () => {
-      count.value += 1;
-    };
+    // const increaseCount = () => {
+    //   count.value += 1;
+    // };
 
-    const decreaseCount = () => {
-      count.value -= 1;
-    };
+    // const decreaseCount = () => {
+    //   count.value -= 1;
+    // };
 
-    return { storeCounter, count, oddOrEven, increaseCount, decreaseCount };
+    return { storeCounter };
   },
 });
 </script>
